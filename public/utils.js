@@ -9,7 +9,7 @@ function generateColor() {
 function handleAuth() {
 	const password = prompt("Enter password");
 
-	fetch(`http://${HOST}/auth`, {
+	fetch(`https://${HOST}/auth`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -29,7 +29,7 @@ function handleUserJoin(e) {
 	const name = e.target.name.value;
 	if (name?.trim() === "") return;
 
-	fetch(`http://${HOST}/register`, {
+	fetch(`https://${HOST}/register`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",

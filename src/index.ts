@@ -8,7 +8,7 @@ import fastifyCors from "@fastify/cors";
 import { config } from "dotenv";
 
 const PUBLIC = path.join(__dirname, "..", "public");
-const INDEX = path.join(__dirname, "pages", "index.html");
+const INDEX = path.join(__dirname, "..", "pages", "index.html");
 const VIDEO = path.join(__dirname, "..", "videos", "src.mp4");
 const ENV = path.join(__dirname, "..", ".env");
 const CHUNK_SIZE = 10 ** 6;

@@ -1,0 +1,20 @@
+const player = new Plyr("#video", {
+	title: "Your Honor | Movie Night",
+	controls: [
+		"play-large",
+		"play",
+		"progress",
+		"current-time",
+		"mute",
+		"volume",
+		"captions",
+		"settings",
+		"pip",
+		"airplay",
+		"fullscreen",
+	],
+	setting: ["captions", "quality", "speed"],
+	autoplay: false,
+	hideControls: true,
+	disableContextMenu: true,
+});

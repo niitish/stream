@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no"
+		/>
+		<title>📽️ Movie Night 🍿</title>
+		<script src="https://cdn.plyr.io/3.7.7/plyr.polyfilled.js"></script>
+		<link rel="stylesheet" href="https://cdn.plyr.io/3.7.7/plyr.css" />
+		<link rel="stylesheet" href="/static/index.css" />
+		<script type="text/javascript" src="/static/player.js" defer></script>
+		<script type="text/javascript" src="/static/chat.js" defer></script>
+		<script type="text/javascript" src="/static/utils.js" defer></script>
+	</head>
+	<body>
+		<div class="container">
+			<video controls id="video">
+				<source src="/video" type="video/mp4" />
+			</video>
+			<div id="chat">
+				<button id="adminLogin" onclick="handleAuth(event)">🗝️</button>
+				<div id="heading">
+					<a href="http://" target="_blank" rel="noopener noreferrer">
+						Avengers (2015)
+					</a>
+				</div>
+				<form id="join" onsubmit="handleUserJoin(event)">
+					<label for="name">Enter your name to join the chat</label>
+					<input
+						type="text"
+						id="name"
+						name="name"
+						required
+						minlength="4"
+						maxlength="9"
+					/>
+					<input type="submit" hidden />
+				</form>
+				<ul id="chatList"></ul>
+				<form id="msgInp" onsubmit="handlePostMessage(event)">
+					<input
+						type="text"
+						id="msg"
+						name="msg"
+						placeholder="enter message here"
+						required
+					/>
+					<input type="submit" hidden />
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

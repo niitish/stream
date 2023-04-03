@@ -52,8 +52,10 @@ app.register(fastifyCookie, {
 	secret: ENCKEY,
 	parseOptions: {
 		domain: HOST,
-		sameSite: "lax",
-		secure: "auto",
+		httpOnly: true,
+		sameSite: "strict",
+		secure: true,
+		signed: true,
 	},
 });
 
@@ -156,10 +158,7 @@ app.post<{ Body: RegisterSchema }>("/register", async (request, reply) => {
 		return reply.code(400).send("Choose a different username!");
 	else users.push(name);
 
-	return reply
-		.status(200)
-		.cookie("name", name, { signed: true })
-		.send("Registered!");
+	return reply.status(200).cookie("name", name).send("Registered!");
 });
 
 app.post<{ Body: AuthSchema }>("/auth", async (request, reply) => {
@@ -171,12 +170,7 @@ app.post<{ Body: AuthSchema }>("/auth", async (request, reply) => {
 	}
 
 	if (password === PASSWORD) {
-		return reply
-			.status(200)
-			.cookie("admin", "true", {
-				signed: true,
-			})
-			.send("Hello admin!");
+		return reply.status(200).cookie("admin", "true").send("Hello admin!");
 	} else {
 		return reply.status(401).send("Wrong password!");
 	}

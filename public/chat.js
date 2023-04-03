@@ -14,7 +14,7 @@ const chatList = document.getElementById("chatList");
 let WS;
 
 function openSocket() {
-	WS = new WebSocket(`ws://${HOST}/ws`);
+	WS = new WebSocket(`wss://${HOST}/ws`);
 
 	WS.onopen = () => {
 		console.log("Connected to the server");
